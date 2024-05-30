@@ -8,12 +8,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.Display;
 
-@Mod(modid = "chillzone", name = "Project", version = "0.1")
+@Mod(modid = "stay", name = "Stay", version = "")
 public class OyVey {
-    public static final String MODID = "chillzone";
-    public static final String MODNAME = "Project"; // rename here
+    public static final String MODID = "stay";
+    public static final String MODNAME = "Stay"; // rename here
     public static final String MODVER = "0.1";
-    public static final Logger LOGGER = LogManager.getLogger("ChillZone");
+    public static final Logger LOGGER = LogManager.getLogger("Stay");
     public static CommandManager commandManager;
     public static FriendManager friendManager;
     public static ModuleManager moduleManager;
@@ -40,7 +40,7 @@ public class OyVey {
     }
 
     public static void load() {
-        LOGGER.info("\n\nLoading ChillZone ");
+        LOGGER.info("\n\nLoading Stay ");
         unloaded = false;
         if (reloadManager != null) {
             reloadManager.unload();
@@ -70,11 +70,11 @@ public class OyVey {
         LOGGER.info("EventManager loaded.");
         textManager.init(true);
         moduleManager.onLoad();
-        LOGGER.info("ChillZone successfully loaded!\n");
+        LOGGER.info("Stay successfully loaded!\n");
     }
 
     public static void unload(boolean unload) {
-        LOGGER.info("\n\nUnloading ChillZone");
+        LOGGER.info("\n\nUnloading Stay");
         if (unload) {
             reloadManager = new ReloadManager();
             reloadManager.init(commandManager != null ? commandManager.getPrefix() : ";");
@@ -95,7 +95,7 @@ public class OyVey {
         inventoryManager = null;
         moduleManager = null;
         textManager = null;
-        LOGGER.info("ChillZone unloaded!\n");
+        LOGGER.info("Stay unloaded!\n");
     }
 
     public static void reload() {
@@ -107,7 +107,7 @@ public class OyVey {
         if (!unloaded) {
             eventManager.onUnload();
             moduleManager.onUnload();
-            configManager.saveConfig(OyVey.configManager.config.replaceFirst("ChillZone/", ""));
+            configManager.saveConfig(OyVey.configManager.config.replaceFirst("Stay/", ""));
             moduleManager.onUnloadPost();
             unloaded = true;
         }
@@ -120,7 +120,7 @@ public class OyVey {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        Display.setTitle("ChillZone v0.1");
+        Display.setTitle("Stay v0.1");
         OyVey.load();
     }
 }

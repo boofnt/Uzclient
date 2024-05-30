@@ -42,7 +42,6 @@ public class ModuleManager
         this.modules.add(new FontMod());
         this.modules.add(new HUD());
         //combat
-        this.modules.add(new BedAura());
         this.modules.add(new AutoCrystal());
         this.modules.add(new AutoArmor());
         this.modules.add(new AutoTrap());
